@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './app.jsx'
 import './index.css';
 
 
 ReactDOM.render(
-	<h1>sa</h1>,
+	<App/>,
 	document.getElementById('root')
 );

@@ -1,0 +1,45 @@
+.map-header {
+  width: 100%;
+  height: 102px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 27px;
+  background: #1C1A19;
+
+  &__logo {
+	display: flex;
+	align-items: center;
+  }
+}
+
+.header-logo__title {
+  font-family: "Blade Runner", serif;
+  font-size: 36px;
+  font-weight: 700;
+  font-style: italic;
+  color: #fff;
+margin-left: 10px;
+  & span {
+	color: #FDBF5A;
+  }
+}
+
+.header-nav {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+
+
+  &__item {
+	color: #fff;
+	font-family: Roboto, serif;
+	font-size: 21px;
+	font-style: normal;
+	font-weight: 400;
+
+	&_active {
+	  color: #FFA842;
+	}
+  }
+}

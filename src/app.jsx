@@ -1,35 +1,29 @@
-import React from 'react';
-import Header from "./header/header";
+import React, {useState} from 'react';
+import Header from './modules/header/header';
+import {LoginModal} from './modules/auth/LoginModal'
+import {Map} from './modules/map/MapApi'
+import {AuthProvider, useAuth} from "./modules/auth/AuthProvider";
+
+function App() {
+	const [state, setState] = useState({page: 'Profile'})
 
 
-class App extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {page: 'Profile'}
-		this.clickHandler = this.clickHandler.bind(this)
+
+	const clickHandler = e => {
+		e.preventDefault()
+		setState({page: e.target.textContent})
 	}
 
-	clickHandler = (e) => {
-		this.setState({page: e.target.textContent})
-	}
+	return (
+		<AuthProvider>
+			<Header onClick={(e) => clickHandler(e)}/>
+			<Map>
 
-	render() {
-		switch (this.state.page) {
-			case 'Profile':
-				break
-			case 'Map':
-				break
-			case 'Login':
-				break
-		}
-		return (<>
-				<Header onClick={(e) => this.clickHandler(e)}/>
-				{this.state.page}
-			</>
-		);
-	}
+				{state.page === 'Войти' ? <LoginModal/> : <h2>{state.page}</h2>}
+			</Map>
+		</AuthProvider>
 
-
+	);
 }
 
 export default App;

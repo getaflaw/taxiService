@@ -1,0 +1,34 @@
+.auth-layout {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../assets/image/maps-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.auth-logo {
+  height: 100vh;
+  width: 25%;
+  background: #1C1A19;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &__title {
+    font-family: "Blade Runner", serif;
+    font-size: 36px;
+    font-weight: 700;
+    font-style: italic;
+    color: #fff;
+    margin-top: 20px;
+
+    & span {
+      color: #FDBF5A;
+    }
+  }
+}
+.auth-modal {
+  width: 75%;
+  height: 100%;
+  position: relative;
+}

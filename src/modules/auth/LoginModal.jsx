@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import {useAuth} from "./AuthProvider";
+import {connect} from 'react-redux'
+import {loggedIn, showAlert} from '../../redux/actions'
 
-export const LoginModal = () => {
+const LoginModal = ({loggedIn, alert, isLoading}) => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
-	const {login} = useAuth()
 
 	const handleChange = e => {
 		if (e.target.name === 'email') {
@@ -13,10 +13,14 @@ export const LoginModal = () => {
 		if (e.target.name === 'password') {
 			setPassword(e.target.value)
 		}
+
 	}
 	const auth = (e) => {
 		e.preventDefault()
-		login(email, password)
+		loggedIn({email, password})
+	}
+	if (alert) {
+
 	}
 	return (
 		<div className="login-window">
@@ -30,7 +34,7 @@ export const LoginModal = () => {
 							   name='email'
 							   value={email}
 							   onChange={handleChange}/>
-						<span className={'email-label__error'}></span>
+						<span className={'email-label__error'}>{alert}</span>
 					</label>
 					<label className={'login-form__password password-label'}>
 						<span className={'password-label__description'}>Пароль</span>
@@ -46,6 +50,24 @@ export const LoginModal = () => {
 				<span className={'login-modal__registration'}>Новый пользователь? <a
 					className={'login-modal__registration_link'}>Регистрация</a></span>
 			</div>
+			{isLoading && <div className="lds-ring">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>}
 		</div>
 	)
 }
+
+const mapStateToProps = state => ({
+	alert: state.login.alert,
+	isLoading: state.login.isLoading
+})
+
+const mapDispatchToProps = {
+	loggedIn, showAlert
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginModal)

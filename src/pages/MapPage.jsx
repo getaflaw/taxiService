@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../modules/header/header";
-import {Map} from "../modules/map/MapApi";
+import Header from "../components/header/header";
+import {Map} from "../components/map/MapApi";
 import { Redirect } from 'react-router-dom'
 import {useSelector} from "react-redux";
 

@@ -1,10 +1,17 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import {loggedIn, showAlert} from '../../redux/actions'
+import { useForm } from 'react-hook-form';
 
 const LoginModal = ({loggedIn, alert, isLoading}) => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
+
+	const {
+		register,
+			handleSubmit,
+			formState: { errors },
+	} = useForm();
 
 	const handleChange = e => {
 		if (e.target.name === 'email') {
@@ -19,9 +26,7 @@ const LoginModal = ({loggedIn, alert, isLoading}) => {
 		e.preventDefault()
 		loggedIn({email, password})
 	}
-	if (alert) {
 
-	}
 	return (
 		<div className="login-window">
 			<div className={'login-modal'}>

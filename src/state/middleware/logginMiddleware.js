@@ -1,4 +1,4 @@
-import {showAlert} from '../redux/actions'
+import {failedToLogin} from '../redux/actions'
 const requestAuthToServer = async (store, action)=> {
 	const userData = {email: action.payload.email, password: action.payload.password}
 	const response = await fetch('https://loft-taxi.glitch.me/auth',
@@ -14,7 +14,7 @@ const requestAuthToServer = async (store, action)=> {
 		return store.dispatch({type: 'SUCCESS_LOGGED_IN'})
 	}
 	else {
-		return store.dispatch(showAlert('Авторизация не удалась, попробуйте снова'))
+		return store.dispatch(failedToLogin())
 	}
 }
 

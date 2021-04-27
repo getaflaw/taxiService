@@ -1,0 +1,45 @@
+.registration-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 580px;
+  height: 631px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 55px 0;
+}
+
+.registration-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Roboto;
+  font-style: normal;
+  height: 100%;
+
+  &__error {
+	color: red;
+  }
+
+  &__title {
+	font-size: 30px;
+	font-weight: 700;
+  }
+
+  &__form {
+	width: 60%;
+  }
+
+  &__registration {
+	font-weight: 400;
+	color: #828282;
+
+	&_link {
+	  color: #FFA842;
+	  cursor: pointer;
+	}
+  }
+}

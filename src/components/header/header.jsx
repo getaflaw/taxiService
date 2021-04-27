@@ -1,11 +1,12 @@
 import React from 'react';
 import {useDispatch} from 'react-redux'
-import {Logo} from './svg-logo'
+import {Logo} from '../generic/svg-logo'
 import {
 	BrowserRouter as Router,
 	Link
 } from "react-router-dom";
-import {logOut} from "../../redux/actions";
+import {logOut} from "../../state/redux/actions";
+import './header.scss'
 
 function Header(props) {
 	const dispatch = useDispatch()

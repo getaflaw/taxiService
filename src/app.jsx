@@ -16,7 +16,8 @@ function App() {
 						path="/map"
 						component={MapPage}
 					/>
-					<Route path="/profile" render={() => <p>Public</p>}/>
+					<Route path="/profile" render={() => <p>Public</p>}>
+					</Route>
 					<Route path="/login" component={LoginPage}/>
 					<Redirect to="/login"/>
 				</Switch>

@@ -10,16 +10,11 @@ export function loggedIn(dataUser) {
 	}
 }
 
-export function showAlert(text) {
+export function failedToLogin() {
 	return dispatch => {
 		dispatch({
 			type: 'FAILED_LOGGED_IN',
-			payload: text
 		})
-
-		setTimeout(() => {
-			dispatch({type:'HIDE_ALERT'})
-		}, 3000)
 	}
 }
 

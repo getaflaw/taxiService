@@ -1,13 +1,13 @@
 import React from "react";
 import LoginModal from "../components/auth/LoginModal";
-import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
-import {useSelector} from "react-redux";
+import {Route, Redirect, Switch} from 'react-router-dom';
+import {useSelector, use} from "react-redux";
 import {LayoutAuth} from "../components/auth/LayoutAuth";
-import MapPage from "./MapPage";
 import {RegistrationModal} from "../components/auth/RegistrationModal";
 
-export default ({match}) => {
+export default () => {
 	const isLoggedIn = useSelector(state => state.login.isLoggedIn)
+
 	return (isLoggedIn ?
 			<Redirect to="/map"/>
 			:

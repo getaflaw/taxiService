@@ -16,19 +16,17 @@ function Header(props) {
 	}
 
 	return (
-		<Router>
 			<header className='map-header'>
 				<div className='map-header__logo'>
 					<Logo width={'61'} height={61}/>
 					<h1 className='header-logo__title'>loft<span>taxi</span></h1>
 				</div>
 				<nav className='header-nav'>
-					<Link to='/map' className='header-nav__item' onClick={props.onClick}>Карта</Link>
-					<Link to='/profile' className='header-nav__item' onClick={props.onClick}>Профиль</Link>
+					<Link to='/map' className='header-nav__item'>Карта</Link>
+					<Link to='/map/profile' className='header-nav__item'>Профиль</Link>
 					<a className='header-nav__item' onClick={clickHandler}>Выйти</a>
 				</nav>
 			</header>
-		</Router>
 	)
 }
 

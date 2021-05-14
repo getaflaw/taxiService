@@ -1,34 +1,36 @@
-import {loggedIn, loggedStatus} from "./actions";
+import {FAILED_TO_LOGIN, LOGOUT, REQUEST_LOGGED_IN, SUCCESS_TO_LOGIN} from "./types";
 
 const initialState = {
 	dataUser: {email: '', password: ''},
 	isLoggedIn: false,
-	isLoading: false
+	isLoading: false,
+	authToken: ''
 };
 
-export const logInReducer = (state = initialState, action) => {
+export const logInReducer = (state= initialState, action) => {
 	switch (action.type) {
-		case 'REQUES_LOGGING':
+		case REQUEST_LOGGED_IN:
 			return {
 				...state,
 				isLoggedIn: false,
 				dataUser: action.payload,
 				isLoading: true
 			}
-		case 'SUCCESS_LOGGED_IN':
+		case SUCCESS_TO_LOGIN:
 			return {
 				...state,
 				isLoggedIn: true,
-				isLoading: false
+				isLoading: false,
+				authToken: action.payload
 			}
-		case 'FAILED_LOGGED_IN':
+		case FAILED_TO_LOGIN:
 			return {
 				...state,
 				dataUser: {email: '', password: ''},
 				isLoggedIn: false,
 				isLoading: false
 			}
-		case 'LOGOUT':
+		case LOGOUT:
 			return {
 				...state,
 				isLoggedIn: false,

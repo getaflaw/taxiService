@@ -4,7 +4,7 @@ import {loggedIn} from '../../state/redux/actions'
 import {useForm} from 'react-hook-form';
 import {Loading} from "../generic/Loading";
 import {Link} from "react-router-dom";
-import {AuthInput} from "../generic/AuthInput";
+import {FormInput} from "../generic/FormInput";
 
 const LoginModal = () => {
 
@@ -26,7 +26,7 @@ const LoginModal = () => {
 				<h2 className={'login-modal__title'}>Войти</h2>
 				<h5 className={'login-modal__error'}></h5>
 				<form className={'login-modal__form login-form'} onSubmit={handleSubmit(onAuthSubmit)}>
-					<AuthInput
+					<FormInput
 						className='email-label'
 						title='Email'
 						errors={errors.email}
@@ -39,7 +39,7 @@ const LoginModal = () => {
 								}
 							})}
 					/>
-					<AuthInput
+					<FormInput
 						title='Пароль'
 						className={'password-label'}
 						type='password'
